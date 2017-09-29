@@ -9,7 +9,7 @@ function Ball(x, y, diameter, velocity) {
         ellipse(this.pos.x, this.pos.y, this.diameter, this.diameter);
     }
 
-    this.move = function(direction) {
+    this.move = function() {
         if (collideLineCircle(0, 0, 0, h, this.pos.x, this.pos.y, this.diameter)) {
             console.log("Ball hit left wall");
             this.velocity.rotate(this.velocity.heading() * (-1) * 2 - 180);

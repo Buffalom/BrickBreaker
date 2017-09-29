@@ -22,6 +22,27 @@ function Game(numberOfBricks) {
         for (var x = 0; x < this.numberOfBricks; x++) {
             this.bricks[x].draw();
         }
+        
+        if (collideLineCircle(this.paddle.pos.x + 1, this.paddle.pos.y, this.paddle.pos.x + this.paddle.width - 1, this.paddle.pos.y, this.ball.pos.x, this.ball.pos.y, this.ball.diameter)) {
+            console.log("Ball hit paddle from top");
+            this.ball.velocity.rotate(this.ball.velocity.heading() * (-1) * 2);
+        }
+        /*if (collideLineCircle(this.paddle.pos.x, this.paddle.pos.y + 1, this.paddle.pos.x, this.paddle.pos.y + this.paddle.height - 1, this.ball.pos.x, this.ball.pos.y, this.ball.diameter)) {
+            console.log("Ball hit paddle from left");
+            this.ball.velocity.rotate(this.ball.velocity.heading() * (-1) * 2 - 180);
+        }
+        if (collideLineCircle(this.paddle.pos.x + this.paddle.width, this.paddle.pos.y + 1, this.paddle.pos.x + this.paddle.width, this.paddle.pos.y + this.paddle.height - 1, this.ball.pos.x, this.ball.pos.y, this.ball.diameter)) {
+            console.log("Ball hit paddle from right");
+            this.ball.velocity.rotate(this.ball.velocity.heading() * (-1) * 2 - 180);
+        }
+        if (collidePointCircle(this.paddle.pos.x, this.paddle.pos.y, this.ball.pos.x, this.ball.pos.y, this.ball.diameter)) {
+            console.log("Ball hit paddle from top left");
+            this.ball.velocity.rotate(this.ball.velocity.heading() * (-1) * 2 - 45);
+        }
+        if (collidePointCircle(this.paddle.pos.x + this.paddle.width, this.paddle.pos.y, this.ball.pos.x, this.ball.pos.y, this.ball.diameter)) {
+            console.log("Ball hit paddle from top right");
+            this.ball.velocity.rotate(this.ball.velocity.heading() * (-1) * 2 + 45);
+        }*/
 
         if (keyIsDown(LEFT_ARROW)) {
             this.paddle.move(0);
