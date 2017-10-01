@@ -9,7 +9,7 @@ function Game(numberOfBricks) {
         this.ball = new Ball(w / 2 - 10, h / 2 - 10, 20, 3);
 
         for (var x = 0; x < this.numberOfBricks; x++) {
-            this.bricks[x] = new Brick(random(w), random(h * 0.8), 20);
+            this.bricks[x] = new Brick(random(w - 20), random(h * 0.8), 20);
         }
     }
 
@@ -43,6 +43,27 @@ function Game(numberOfBricks) {
             console.log("Ball hit paddle from top right");
             this.ball.velocity.rotate(this.ball.velocity.heading() * (-1) * 2 + 45);
         }*/
+
+        if (this.ball.pos.y + this.ball.diameter / 2 >= h) {
+            console.log("Game over");
+            push();
+            translate(w / 2, h / 2);
+            fill(255);
+            noStroke();
+            textAlign(CENTER);
+            textSize(48);
+            text("Game over", 0, 0);
+            textSize(24);
+            text("Press Space to Restart", 0, 40);
+            pop();
+            this.paddle.velocity = 0;
+            this.ball.velocity = 0;
+            
+            if (keyIsDown(32)) {
+                console.log("Restart");
+                window.location = "";
+            }
+        }
 
         if (keyIsDown(LEFT_ARROW)) {
             this.paddle.move(0);

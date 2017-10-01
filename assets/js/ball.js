@@ -5,11 +5,11 @@ function Ball(x, y, diameter, velocity) {
     //this.velocity.rotate(random(-20, -160));
     this.velocity.rotate(random(360));
 
-    this.draw = function() {
+    this.draw = function () {
         ellipse(this.pos.x, this.pos.y, this.diameter, this.diameter);
     }
 
-    this.move = function() {
+    this.move = function () {
         if (collideLineCircle(0, 0, 0, h, this.pos.x, this.pos.y, this.diameter)) {
             console.log("Ball hit left wall");
             this.velocity.rotate(this.velocity.heading() * (-1) * 2 - 180);
