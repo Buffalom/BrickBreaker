@@ -3,6 +3,7 @@ function Game(numberOfBricks, speed) {
     this.ball;
     this.numberOfBricks = numberOfBricks;
     this.bricks = [];
+    this.score = 0;
 
     this.start = function() {
         this.paddle = new Paddle(w / 2 - 25, h - 50, 50, speed);
@@ -61,6 +62,8 @@ function Game(numberOfBricks, speed) {
                 }
                 if (brickGotHit) {
                     this.bricks.splice(x, 1);
+                    this.score++;
+                    console.log("Score: " + this.score);
                     x--;
                 } else {
                     this.bricks[x].draw();
@@ -74,8 +77,10 @@ function Game(numberOfBricks, speed) {
                 fill(255);
                 noStroke();
                 textAlign(CENTER);
+                textSize(32);
+                text("Game over", 0, -50);
                 textSize(48);
-                text("Game over", 0, 0);
+                text("Score: " + this.score, 0, 0);
                 textSize(24);
                 text("Press Space to Restart", 0, 40);
                 pop();
@@ -92,8 +97,10 @@ function Game(numberOfBricks, speed) {
             fill(255);
             noStroke();
             textAlign(CENTER);
+            textSize(32);
+            text("Game over", 0, -50);
             textSize(48);
-            text("Congrats, You Win!", 0, 0);
+            text("Score: " + this.score, 0, 0);
             textSize(24);
             text("Press Space to Restart", 0, 40);
             pop();
