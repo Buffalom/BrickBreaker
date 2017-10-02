@@ -6,7 +6,7 @@ function Game(numberOfBricks, speed) {
 
     this.start = function() {
         this.paddle = new Paddle(w / 2 - 25, h - 50, 50, speed);
-        this.ball = new Ball(w / 2 - 10, h / 2 - 10, 20, speed * 0.6);
+        this.ball = new Ball(w / 2 - 10, h * 0.7 - 10, 20, speed * 0.6);
 
         for (var x = 0; x < this.numberOfBricks; x++) {
             this.bricks[x] = new Brick(random(w - 20), random(h * 0.8), 20);

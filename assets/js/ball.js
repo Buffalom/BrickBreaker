@@ -2,8 +2,7 @@ function Ball(x, y, diameter, speed) {
     this.pos = createVector(x, y);
     this.diameter = diameter;
     this.velocity = createVector(speed, 0);
-    //this.velocity.rotate(random(-20, -160));
-    this.velocity.rotate(random(360));
+    this.velocity.rotate(random(-20, -160));
 
     this.draw = function () {
         ellipse(this.pos.x, this.pos.y, this.diameter, this.diameter);

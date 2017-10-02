@@ -6,7 +6,7 @@ function setup() {
   createCanvas(w, h);
   angleMode(DEGREES);
 
-  game = new Game(50, 8);
+  game = new Game(50, 10);
   game.start();
 }
 
