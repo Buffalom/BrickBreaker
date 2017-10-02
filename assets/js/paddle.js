@@ -1,8 +1,8 @@
-function Paddle(x, y, width, velocity) {
+function Paddle(x, y, width, speed) {
     this.pos = createVector(x, y);
     this.width = width;
     this.height = 10;
-    this.velocity = velocity;
+    this.velocity = speed;
 
     this.draw = function() {
         rect(this.pos.x, this.pos.y, this.width, this.height);

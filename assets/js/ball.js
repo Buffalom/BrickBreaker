@@ -1,7 +1,7 @@
-function Ball(x, y, diameter, velocity) {
+function Ball(x, y, diameter, speed) {
     this.pos = createVector(x, y);
     this.diameter = diameter;
-    this.velocity = createVector(velocity, 0);
+    this.velocity = createVector(speed, 0);
     //this.velocity.rotate(random(-20, -160));
     this.velocity.rotate(random(360));
 

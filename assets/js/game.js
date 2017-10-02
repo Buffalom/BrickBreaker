@@ -1,12 +1,12 @@
-function Game(numberOfBricks) {
+function Game(numberOfBricks, speed) {
     this.paddle;
     this.ball;
     this.numberOfBricks = numberOfBricks;
     this.bricks = [];
 
     this.start = function() {
-        this.paddle = new Paddle(w / 2 - 25, h - 50, 50, 5);
-        this.ball = new Ball(w / 2 - 10, h / 2 - 10, 20, 3);
+        this.paddle = new Paddle(w / 2 - 25, h - 50, 50, speed);
+        this.ball = new Ball(w / 2 - 10, h / 2 - 10, 20, speed * 0.6);
 
         for (var x = 0; x < this.numberOfBricks; x++) {
             this.bricks[x] = new Brick(random(w - 20), random(h * 0.8), 20);
