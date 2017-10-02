@@ -19,21 +19,31 @@ function Game(numberOfBricks) {
         this.ball.draw();
         this.ball.move();
 
-        for (var x = 0; x < this.numberOfBricks; x++) {
+        for (var x = 0; x < this.bricks.length; x++) {
+            var brickGotHit = false;
             if (collideLineCircle(this.bricks[x].pos.x, this.bricks[x].pos.y, this.bricks[x].pos.x + this.bricks[x].width, this.bricks[x].pos.y, this.ball.pos.x, this.ball.pos.y, this.ball.diameter)) {
                 console.log("Ball hit brick " + x + " from top");
                 this.ball.velocity.rotate(this.ball.velocity.heading() * (-1) * 2);
+                brickGotHit = true;
             } else if (collideLineCircle(this.bricks[x].pos.x, this.bricks[x].pos.y, this.bricks[x].pos.x, this.bricks[x].pos.y + this.bricks[x].width, this.ball.pos.x, this.ball.pos.y, this.ball.diameter)) {
                 console.log("Ball hit brick " + x + " from left");
                 this.ball.velocity.rotate(this.ball.velocity.heading() * (-1) * 2 - 180);
+                brickGotHit = true;
             } else if (collideLineCircle(this.bricks[x].pos.x + this.bricks[x].width, this.bricks[x].pos.y, this.bricks[x].pos.x + this.bricks[x].width, this.bricks[x].pos.y + this.bricks[x].width, this.ball.pos.x, this.ball.pos.y, this.ball.diameter)) {
                 console.log("Ball hit brick " + x + " from right");
                 this.ball.velocity.rotate(this.ball.velocity.heading() * (-1) * 2 - 180);
+                brickGotHit = true;
             } else if (collideLineCircle(this.bricks[x].pos.x, this.bricks[x].pos.y + this.bricks[x].width, this.bricks[x].pos.x + this.bricks[x].width, this.bricks[x].pos.y + this.bricks[x].width, this.ball.pos.x, this.ball.pos.y, this.ball.diameter)) {
                 console.log("Ball hit brick " + x + " from bottom");
                 this.ball.velocity.rotate(this.ball.velocity.heading() * (-1) * 2);
+                brickGotHit = true;
             }
-            this.bricks[x].draw();
+            if (brickGotHit) {
+                this.bricks.splice(x, 1);
+                x--;
+            } else {
+                this.bricks[x].draw();
+            }
         }
         
         if (collideLineCircle(this.paddle.pos.x + 1, this.paddle.pos.y, this.paddle.pos.x + this.paddle.width - 1, this.paddle.pos.y, this.ball.pos.x, this.ball.pos.y, this.ball.diameter)) {
