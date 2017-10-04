@@ -10,7 +10,7 @@ function Game(numberOfBricks, speed) {
         this.ball = new Ball(w / 2 - 10, h * 0.7 - 10, h / 50, speed * 0.6);
 
         for (var x = 0; x < this.numberOfBricks; x++) {
-            this.bricks[x] = new Brick(random(w - 20), random(h * 0.8), 20);
+            this.bricks[x] = new Brick(random(w - 20), random(h * 0.5), 20);
         }
     }
 
