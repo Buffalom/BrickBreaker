@@ -19,3 +19,7 @@ function draw() {
 
   game.run();
 }
+
+function touchMoved() {
+  game.paddle.pos.x = mouseX - game.paddle.width / 2;
+}
