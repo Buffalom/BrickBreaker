@@ -1,12 +1,14 @@
 let w = window.innerWidth;
 let h = window.innerHeight;
+let numberOfBricks = 100;
+let speed = h / 60;
 let game;
 
 function setup() {
   createCanvas(w, h);
   angleMode(DEGREES);
 
-  game = new Game(50, 10);
+  game = new Game(numberOfBricks, speed);
   game.start();
 }
 
