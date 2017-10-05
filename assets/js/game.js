@@ -98,7 +98,7 @@ function Game(numberOfBricks, speed) {
             noStroke();
             textAlign(CENTER);
             textSize(32);
-            text("Game over", 0, -50);
+            text("You Win!", 0, -50);
             textSize(48);
             text("Score: " + this.score, 0, 0);
             textSize(24);
