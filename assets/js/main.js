@@ -21,5 +21,8 @@ function draw() {
 }
 
 function touchMoved() {
-  game.paddle.pos.x = mouseX - game.paddle.width / 2;
+  var currentMouseX = mouseX - game.paddle.width / 2;
+  if (currentMouseX >= 0 && currentMouseX <= w) {
+    game.paddle.pos.x = mouseX - game.paddle.width / 2;
+  }
 }
